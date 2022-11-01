@@ -1,0 +1,720 @@
+/* BASE CONFIGURATION */
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+/* VARIABLES CONFIGURATIONS */
+
+$primaryColor: #000;
+$secondaryColor: #fff;
+$primaryFont: SoDoSans, Helvetica Neue, Helvetica, Arial, sans-serif;
+
+
+/* NAVBAR */
+/* FONT */
+@font-face {
+    font-family: "SoDoSans";
+    src: url("../fonts/sodo-sans-8.woff");
+}
+
+/* NAVBAR */
+header {
+    box-shadow: 0 10px 5px -10px rgba(120, 120, 120, 0.5);
+    height: 100px;
+}
+
+nav {
+    display: flex;
+    padding-top: 1.25%;
+}
+
+.overflowHidden {
+    overflow: hidden;
+}
+
+.navbarAlignLeft {
+    display: flex;
+    list-style-type: none;
+    gap: 25px;
+    align-items: center;
+    padding-left: 7.5%;
+    width: 50%;
+    justify-content: start;
+
+    &Border {
+        display: none;
+        border: 1px solid #000;
+        width: 85%;
+        margin: 6% auto;
+        opacity: 0.1;
+    }
+
+    &LinkImage {
+        margin-right: 2%;
+    }
+
+    & li {
+        margin-bottom: 1%;
+
+        & > a {
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: $primaryFont;
+            letter-spacing: 0.1em;
+            color: #000;
+            font-size: 0.9rem;
+
+            &:hover {
+                color: #00756D;
+            }
+        }
+    }
+
+    &Responsive {
+        display: none;
+        padding-top: 2%;
+
+        & li {
+            margin-top: 8%;
+            margin-left: 8%;
+            list-style-type: none;
+            margin-bottom: 1%;
+
+            & > a {
+                text-decoration: none;
+                font-family: $primaryFont;
+                color: #000;
+                font-size: 1.2rem;
+                cursor: pointer;
+
+                &:hover {
+                    color: #00756D;
+                }
+            }
+        }
+
+        &Arrow {
+            font-size: 2rem;
+            position: absolute;
+            margin-left: 75%;
+
+            &Sub {
+                font-size: 2rem;
+                position: absolute;
+                margin-left: 8%;
+            }
+        }
+
+        &Grid {
+            grid-template-columns: 50% 50%;
+            display: grid;
+            align-items: center;
+
+            & span::first-letter {
+                text-transform: uppercase;
+            }
+        }
+
+        & li::first-letter {
+            text-transform: uppercase;
+        }
+    }
+}
+
+.navbarAlignRight {
+    display: flex;
+    list-style-type: none;
+    column-gap: 10px;
+    align-items: center;
+    margin-right: 13%;
+    font-size: 0.9rem;
+    width: 50%;
+    justify-content: end;
+
+    & li {
+        margin-bottom: 1%;
+
+        & > a {
+            text-decoration: none;
+            font-weight: bold;
+            font-family: $primaryFont;
+        }
+    }
+
+    &FirstElement {
+        padding-right: 4%;
+    }
+
+    &SecondElement {
+        padding-right: 1%;
+    }
+
+    &FindIcon {
+        display: flex;
+        align-items: center;
+
+        & > li {
+            list-style-type: none;
+            color: #000;
+
+        }
+
+        &:hover {
+            & svg, span {
+                color: #00756D;
+            }
+        }
+
+        &FirstElement {
+            transform: translateX(-20%);
+        }
+
+        &SecondElement {
+            padding-bottom: 6%;
+
+            & > span {
+                font-family: $primaryFont;
+                font-size: 0.9rem;
+                font-weight: 700;
+            }
+        }
+    }
+
+    &Responsive {
+        display: none;
+
+        & li {
+            margin-bottom: 1%;
+
+            & > a {
+                text-decoration: none;
+                font-weight: bold;
+                font-family: $primaryFont;
+            }
+        }
+
+        &FindIcon {
+            display: flex;
+            align-items: center;
+
+            & > li {
+                list-style-type: none;
+                color: #000;
+            }
+
+            &:hover {
+                & svg, span {
+                    color: #00756D;
+                }
+            }
+
+        }
+    }
+}
+
+.navbar {
+    &Logo {
+        width: 51px;
+        height: 51px;
+
+        &Find {
+            width: 24px;
+            height: 24px;
+            color: #000;
+            overflow: visible;
+            fill: currentColor;
+        }
+    }
+
+    &Button {
+        &SignIn {
+            color: #000;
+            border: 1px solid #000;
+            border-radius: 150px;
+            padding: 0.4rem 0.9rem 0.4rem 0.9rem;
+
+            &:hover {
+                background-color: rgba(210, 210, 210, 0.3);
+            }
+        }
+
+        &JoinNow {
+            color: #fff;
+            background-color: #000;
+            border: 1px solid #000;
+            border-radius: 150px;
+            padding: 0.4rem 0.9rem 0.4rem 0.9rem;
+
+            &:hover {
+                background-color: rgba(60, 60, 60, 0.9);
+            }
+        }
+    }
+
+    &Hamburger {
+        display: none;
+    }
+
+    &SubMenu {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        height: 75px;
+    }
+
+    nav {
+        padding-top: 2.5%;
+    }
+
+    .navbarAlignLeft {
+        padding-left: 3%;
+
+        & li {
+            display: none;
+        }
+
+        &Responsive {
+            display: block;
+        }
+
+        &Border {
+            display: block;
+        }
+    }
+
+    .navbarAlignRight {
+        & li {
+            display: none;
+        }
+
+        &Responsive {
+            display: block;
+            list-style-type: none;
+            margin-left: 8%;
+
+            &Grid {
+                display: flex;
+                gap: 5%;
+                align-items: center;
+            }
+
+            &NoGrid {
+                margin-top: 6%;
+            }
+        }
+    }
+
+    .navbarHamburger {
+        display: flex;
+        align-items: center;
+
+        & > li {
+            list-style-type: none;
+
+            & > a {
+                text-decoration: none;
+            }
+        }
+
+        &Icon {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+        }
+
+        & svg:hover {
+            background-color: rgba(210, 210, 210, 0.3);
+            border-radius: 50%;
+            padding: 0.3rem;
+            transition: all 0.2s ease-out
+        }
+
+        &Toggle {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 20px;
+            right: 16px;
+            width: 23px;
+            height: 30px;
+            cursor: pointer;
+
+            & > span:nth-child(1) {
+                top: 4px;
+                border: 1px solid #000;
+                width: 20px;
+                position: absolute;
+            }
+
+            & > span:nth-child(2) {
+                top: 14px;
+                border: 1px solid #000;
+                width: 20px;
+                position: absolute;
+            }
+
+            & > span:nth-child(3) {
+                bottom: 4px;
+                border: 1px solid #000;
+                width: 20px;
+                position: absolute;
+            }
+
+            & span {
+                transition: all 0.5s;
+                width: 20px;
+            }
+
+            &:hover {
+                background-color: rgba(0,0,0,.58);
+                border-radius: 50%;
+                padding-left: 5px;
+                padding-right: 5px;
+                transition: all .2s ease-out;
+            }
+        }
+    }
+
+    .navbarLogo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .navbarHamburgerMask {
+        position: fixed;
+        width: 80%;
+        top: 75px;
+        bottom: 0;
+        right: -80%;
+        background-color: whitesmoke;
+        display: block;
+        opacity: 0;
+        transition: all 0.5s;
+
+        &.open {
+            right: 0;
+            opacity: 1;
+        }
+    }
+    .navbarHamburgerFilter.open {
+        opacity: 0.4;
+        background-color: #000;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+    }
+    .open .navbarHamburgerToggle > span:nth-child(1) {
+        transform: translateY(10px) rotate(-315deg);
+    }
+    .open .navbarHamburgerToggle > span:nth-child(2) {
+        opacity: 0;
+    }
+    .open .navbarHamburgerToggle > span:nth-child(3) {
+        transform: translateY(-10px) rotate(315deg);
+    }
+    .navbarSubMenu {
+        position: fixed;
+        width: 80%;
+        top: 75px;
+        bottom: 0;
+        right: -80%;
+        background-color: whitesmoke;
+        display: block;
+        opacity: 0;
+        transition: all 0.5s;
+
+        &.open {
+            right: 0;
+            opacity: 1;
+        }
+
+        &Header {
+            text-decoration: none;
+            font-family: $primaryFont;
+            color: #000;
+            font-size: 1.2rem;
+            text-align: center;
+            padding-top: 2%;
+            padding-bottom: 2%;
+            height: 5%;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            display: grid;
+            align-items: center;
+
+            & span::first-letter {
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+/* SECTION ADVERTISE */
+
+.mainAdvertise {
+    height: auto;
+    padding: 2% 12%;
+
+    &Container {
+        //display: grid;
+        //grid-template-columns: 50% 50%;
+        display: flex;
+        flex-wrap: wrap;
+
+        & > div {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 6%;
+            background-color: #d4e9e2;
+
+            &:nth-child(4n), &:nth-child(4n-1) {
+                background-color: #006241;
+            }
+
+            & > div {
+                flex: 50%;
+
+                & > img {
+                    width: 100%;
+                }
+            }
+
+            &:nth-child(2n) {
+                flex-direction: row-reverse;
+            }
+        }
+
+    }
+
+    &Button {
+        &Play {
+            border: 1px solid #000;
+            border-radius: 150px;
+            padding: 0.4rem 0.9rem 0.4rem 0.9rem;
+            color: #000;
+            text-decoration: none;
+            font-family: $primaryFont;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgba(210, 210, 210, 0.3);
+            }
+
+            & > li::first-letter {
+                text-transform: uppercase;
+            }
+        }
+
+        &Link {
+            border: 1px solid #000;
+            border-radius: 150px;
+            padding: 0.4rem 0.9rem 0.4rem 0.9rem;
+            color: #000;
+            text-decoration: none;
+            font-family: $primaryFont;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgba(210, 210, 210, 0.3);
+            }
+
+            & > li::first-letter {
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    &Homepage {
+        margin-top: 20%;
+        text-align: center;
+
+        & > p {
+            font-size: 1.5vw;
+            font-family: $primaryFont;
+            margin-top: 5%;
+            line-height: 1.5;
+            color: #1e3932;
+        }
+
+        & > ul {
+            list-style-type: none;
+            margin-top: 8%;
+
+            & > li::first-letter {
+                text-transform: uppercase;
+            }
+        }
+
+        &Title {
+            font-size: 3vw;
+            font-family: $primaryFont;
+            letter-spacing: 0.3rem;
+            color: #1e3932;
+
+            &::first-letter, div::first-letter {
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    &Rewards {
+        margin-top: 4%;
+        margin-left: 8%;
+        font-family: $primaryFont;
+
+        & > h3 {
+            font-size: 1.4vw;
+
+        }
+
+        & > ul {
+            margin-top: 5%;
+
+            & > li {
+                margin-bottom: 2%;
+                font-size: 1.1vw;
+            }
+
+            & > p {
+                margin-bottom: 5%;
+                line-height: 1.5;
+                font-size: 1.1vw;
+            }
+        }
+
+        &Button {
+            list-style-type: none;
+        }
+    }
+
+    &Perfectly {
+        margin-top: 20%;
+        text-align: center;
+
+        &Title {
+            font-size: 3vw;
+            font-family: $primaryFont;
+            letter-spacing: 0.3rem;
+            color: $secondaryColor;
+
+            &::first-letter, div::first-letter {
+                text-transform: uppercase;
+            }
+        }
+
+        & > p {
+            font-size: 1.5vw;
+            font-family: $primaryFont;
+            margin-top: 5%;
+            line-height: 1.5;
+            color: $secondaryColor;
+        }
+
+        & > ul {
+            list-style-type: none;
+            margin-top: 8%;
+
+            & > li::first-letter {
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .mainAdvertise {
+        padding: 6% 0;
+
+        &Container {
+            & > div {
+                & > div {
+                    flex: 100%;
+                }
+            }
+        }
+
+        &Homepage {
+            margin-top: 10%;
+
+            & > p {
+                font-size: 1.5rem;
+            }
+
+            &Title {
+                font-size: 3rem;
+            }
+        }
+
+        &Rewards {
+            margin-top: 10%;
+            & > ul > p {
+                font-size: 1.1rem;
+            }
+
+            & > ul > li {
+                font-size: 1.1rem;
+            }
+
+            & > h3 {
+                font-size: 1.4rem;
+            }
+
+            &Title {
+                font-size: 3rem;
+            }
+        }
+
+        &Perfectly {
+            margin-top: 10%;
+
+            & > p {
+                font-size: 1.5rem;
+            }
+
+            &Title {
+                font-size: 3rem;
+            }
+        }
+    }
+}
+
+/* SECTION RULES */
+
+.rules {
+    &Package {
+        text-align: center;
+        font-family: $primaryFont;
+
+        &Link {
+            text-decoration: underline;
+            color: $primaryColor;
+        }
+
+        &Introduction {
+            margin-top: 1%;
+        }
+
+        &Exclude {
+            margin-top: 5%;
+        }
+
+        &Entrance {
+            margin-top: 2%;
+        }
+    }
+
+    &Border {
+        border: 1px solid #000;
+        margin: 2% auto;
+        opacity: 0.1;
+    }
+}
+
+/*# sourceMappingURL=style.css.map */
