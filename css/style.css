@@ -275,6 +275,7 @@ nav {
     width: 23px;
     height: 30px;
     cursor: pointer;
+    transform: scale(1.2);
   }
   .navbarHamburgerToggle > span:nth-child(1) {
     top: 4px;
@@ -376,17 +377,18 @@ nav {
 /* SECTION ADVERTISE */
 .mainAdvertise {
   height: auto;
-  padding: 2% 12%;
 }
 .mainAdvertiseContainer {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .mainAdvertiseContainer > div {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 6%;
+  margin-top: 2%;
   background-color: #d4e9e2;
+  max-width: 1475px;
 }
 .mainAdvertiseContainer > div:nth-child(4n), .mainAdvertiseContainer > div:nth-child(4n-1) {
   background-color: #006241;
@@ -396,6 +398,7 @@ nav {
 }
 .mainAdvertiseContainer > div > div > img {
   width: 100%;
+  height: 100%;
 }
 .mainAdvertiseContainer > div:nth-child(2n) {
   flex-direction: row-reverse;
