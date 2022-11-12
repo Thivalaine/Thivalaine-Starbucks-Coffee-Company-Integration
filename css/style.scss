@@ -345,7 +345,7 @@ nav {
             width: 23px;
             height: 30px;
             cursor: pointer;
-            transform: scale(1.2);
+            padding-right: 5px;
 
             & > span:nth-child(1) {
                 top: 4px;
@@ -374,7 +374,9 @@ nav {
             }
 
             &:hover {
-                background-color: rgba(0,0,0,.58);
+                transform-origin: center;
+                transform: scale(1.2);
+                background-color: yellow;
                 border-radius: 50%;
                 padding-left: 5px;
                 padding-right: 5px;
@@ -499,10 +501,28 @@ nav {
 
     &Button {
         &Play {
-            border: 1px solid #000;
+            border: 1px solid $primaryColor;
             border-radius: 150px;
             padding: 0.4rem 0.9rem 0.4rem 0.9rem;
-            color: #000;
+            color: $primaryColor;
+            text-decoration: none;
+            font-family: $primaryFont;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgba(210, 210, 210, 0.3);
+            }
+
+            & > li::first-letter {
+                text-transform: uppercase;
+            }
+        }
+
+        &Order {
+            border: 1px solid $secondaryColor;
+            border-radius: 150px;
+            padding: 0.4rem 0.9rem 0.4rem 0.9rem;
+            color: $secondaryColor;
             text-decoration: none;
             font-family: $primaryFont;
             cursor: pointer;
@@ -707,6 +727,7 @@ nav {
 
         &Exclude {
             margin-top: 5%;
+            font-size: .9rem;
         }
 
         &Entrance {
@@ -716,8 +737,42 @@ nav {
 
     &Border {
         border: 1px solid #000;
-        margin: 2% auto;
+        margin: 2% auto .5%;
         opacity: 0.1;
+    }
+}
+
+/* SECTION INFORMATIONS */
+
+.informations {
+    &Grid {
+        display: grid;
+        grid-template-columns: 13% 13% 13% 13% 13% 35%;
+        padding-left: 10%;
+        font-family: $primaryFont;
+
+        & > div {
+            padding: 5%;
+
+            & > h3 {
+                padding-bottom: 18%;
+                font-weight: 500;
+            }
+
+            & ul > li {
+                padding-bottom: 15%;
+                list-style-type: none;
+            }
+
+            & a {
+                text-decoration: none;
+                color: grey;
+
+                &:hover {
+                    color: $primaryColor;
+                }
+            }
+        }
     }
 }
 

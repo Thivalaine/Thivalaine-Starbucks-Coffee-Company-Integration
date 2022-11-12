@@ -275,7 +275,7 @@ nav {
     width: 23px;
     height: 30px;
     cursor: pointer;
-    transform: scale(1.2);
+    padding-right: 5px;
   }
   .navbarHamburgerToggle > span:nth-child(1) {
     top: 4px;
@@ -300,7 +300,9 @@ nav {
     width: 20px;
   }
   .navbarHamburgerToggle:hover {
-    background-color: rgba(0, 0, 0, 0.58);
+    transform-origin: center;
+    transform: scale(1.2);
+    background-color: yellow;
     border-radius: 50%;
     padding-left: 5px;
     padding-right: 5px;
@@ -416,6 +418,21 @@ nav {
   background-color: rgba(210, 210, 210, 0.3);
 }
 .mainAdvertiseButtonPlay > li::first-letter {
+  text-transform: uppercase;
+}
+.mainAdvertiseButtonOrder {
+  border: 1px solid #fff;
+  border-radius: 150px;
+  padding: 0.4rem 0.9rem 0.4rem 0.9rem;
+  color: #fff;
+  text-decoration: none;
+  font-family: SoDoSans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  cursor: pointer;
+}
+.mainAdvertiseButtonOrder:hover {
+  background-color: rgba(210, 210, 210, 0.3);
+}
+.mainAdvertiseButtonOrder > li::first-letter {
   text-transform: uppercase;
 }
 .mainAdvertiseButtonLink {
@@ -566,14 +583,41 @@ nav {
 }
 .rulesPackageExclude {
   margin-top: 5%;
+  font-size: 0.9rem;
 }
 .rulesPackageEntrance {
   margin-top: 2%;
 }
 .rulesBorder {
   border: 1px solid #000;
-  margin: 2% auto;
+  margin: 2% auto 0.5%;
   opacity: 0.1;
+}
+
+/* SECTION INFORMATIONS */
+.informationsGrid {
+  display: grid;
+  grid-template-columns: 13% 13% 13% 13% 13% 35%;
+  padding-left: 10%;
+  font-family: SoDoSans, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+.informationsGrid > div {
+  padding: 5%;
+}
+.informationsGrid > div > h3 {
+  padding-bottom: 18%;
+  font-weight: 500;
+}
+.informationsGrid > div ul > li {
+  padding-bottom: 15%;
+  list-style-type: none;
+}
+.informationsGrid > div a {
+  text-decoration: none;
+  color: grey;
+}
+.informationsGrid > div a:hover {
+  color: #000;
 }
 
 /*# sourceMappingURL=style.css.map */
