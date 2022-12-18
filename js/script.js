@@ -72,3 +72,27 @@ window.addEventListener("resize", function() {
     }
 })
 
+let hover = document.querySelector(".platformsIconButton");
+
+hover.addEventListener("mouseover", mouseover, false);
+
+function mouseover() {
+    hover.classList.add("sb-icon-hover");
+}
+
+hover.addEventListener("mouseout", mouseout, false);
+
+function mouseout() {
+    hover.classList.remove("sb-icon-hover");
+}
+
+let test = document.querySelectorAll('.informationsResponsive > div:nth-child(2n-1)');
+
+for(let i = 0; i < test.length; i++) {
+    test[i].addEventListener('click', function() {
+        let hidden = document.querySelector('.hiddenCollapsible' + i);
+        hidden.classList.toggle("active");
+        let rotate = document.querySelector('.logoCollapsible' + i)
+        rotate.classList.toggle('rotate');
+    })
+}

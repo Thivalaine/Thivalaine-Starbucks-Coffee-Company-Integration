@@ -10,6 +10,7 @@
 $primaryColor: #000;
 $secondaryColor: #fff;
 $primaryFont: SoDoSans, Helvetica Neue, Helvetica, Arial, sans-serif;
+$height: 100px;
 
 
 /* NAVBAR */
@@ -22,7 +23,7 @@ $primaryFont: SoDoSans, Helvetica Neue, Helvetica, Arial, sans-serif;
 /* NAVBAR */
 header {
     box-shadow: 0 10px 5px -10px rgba(120, 120, 120, 0.5);
-    height: 100px;
+    height: $height;
 }
 
 nav {
@@ -345,7 +346,10 @@ nav {
             width: 23px;
             height: 30px;
             cursor: pointer;
-            padding-right: 5px;
+            transition: all 0.2s ease-out;
+            transform-origin: center;
+            transform: scale(0.4);
+            fill: transparent;
 
             & > span:nth-child(1) {
                 top: 4px;
@@ -374,13 +378,18 @@ nav {
             }
 
             &:hover {
-                transform-origin: center;
-                transform: scale(1.2);
-                background-color: yellow;
-                border-radius: 50%;
+                //transform-origin: center;
+                //transform: scale(1.2);
+                //background-color: yellow;
+                //border-radius: 50%;
+                //padding-left: 5px;
+                //padding-right: 5px;
+                //transition: all .2s ease-out;
+                transform: scale(1);
+                border-radius: 24px;
                 padding-left: 5px;
                 padding-right: 5px;
-                transition: all .2s ease-out;
+                background-color: #E9E9E9;
             }
         }
     }
@@ -463,11 +472,8 @@ nav {
 
 .mainAdvertise {
     height: auto;
-    //padding: 2% 12%;
 
     &Container {
-        //display: grid;
-        //grid-template-columns: 50% 50%;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -658,6 +664,7 @@ nav {
 
         &Container {
             & > div {
+                margin-bottom: 4%;
                 & > div {
                     flex: 100%;
                 }
@@ -671,6 +678,10 @@ nav {
                 font-size: 1.5rem;
             }
 
+            & > ul {
+                margin-bottom: 5%;
+            }
+
             &Title {
                 font-size: 3rem;
             }
@@ -678,8 +689,13 @@ nav {
 
         &Rewards {
             margin-top: 10%;
-            & > ul > p {
-                font-size: 1.1rem;
+
+            & > ul {
+                margin-bottom: 5%;
+
+                & > p {
+                    font-size: 1.1rem;
+                }
             }
 
             & > ul > li {
@@ -704,6 +720,10 @@ nav {
 
             &Title {
                 font-size: 3rem;
+            }
+
+            & > ul {
+                margin-bottom: 5%;
             }
         }
     }
@@ -747,9 +767,11 @@ nav {
 .informations {
     &Grid {
         display: grid;
-        grid-template-columns: 13% 13% 13% 13% 13% 35%;
+        grid-template-columns: 20% 20% 20% 20% 20%;
         padding-left: 10%;
+        padding-right: 10%;
         font-family: $primaryFont;
+        max-width: 1000px;
 
         & > div {
             padding: 5%;
@@ -773,6 +795,161 @@ nav {
                 }
             }
         }
+    }
+
+    &Border {
+        border: 1px solid #000;
+        margin: .5% auto 2%;
+        opacity: 0.1;
+        width: 80%;
+    }
+
+    &Responsive {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .informations {
+        &Grid {
+            display: none;
+        }
+
+        &Border {
+            width: 95%;
+        }
+
+        &Responsive {
+            font-family: $primaryFont;
+            font-size: .8rem;
+            display: block;
+            margin: 0 5%;
+
+            & > div {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 3% 0 3%;
+                cursor: pointer;
+
+                & > div > svg {
+                    transition: all .4s;
+
+                    &.rotate {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+
+            & > div:nth-child(2n) {
+                transition: max-height .4s ease-in-out;
+                overflow: hidden;
+                max-height: 0;
+
+                &.active {
+                    max-height: 330px;
+                }
+
+                & > ul > li {
+                    padding-top: 40%;
+
+                    & > a {
+                        text-decoration: none;
+                        color: $primaryColor;
+                        font-size: .9rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* SECTION PLATFORMS */
+
+.platforms {
+    padding-left: 10%;
+
+    &Icon {
+        display: flex;
+        gap: .75%;
+        margin: 2% 0 1% 0;
+
+        & div > a {
+            text-decoration: none;
+            color: $primaryColor;
+            transition: all .2s ease-out;
+        }
+    }
+
+    &Link {
+        &Container {
+
+            & > ul {
+                display: flex;
+                width: 100%;
+
+                & > li {
+                    list-style-type: none;
+                    padding-right: 2%;
+
+                    & > a {
+                        text-decoration: none;
+                        font-family: $primaryFont;
+                        color: black;
+                    }
+
+                    &::first-letter {
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .platforms {
+        padding-left: 5%;
+
+        &LinkContainer {
+            & > ul {
+                display: block;
+
+                & > li:nth-child(2n) {
+                    visibility: hidden;
+                }
+            }
+        }
+
+        &Icon > div {
+            padding-right: 3%;
+        }
+    }
+}
+
+
+.sb-icon-hover {
+    transition: all .2s ease-out;
+    transform-origin: center;
+    transform: scale(.4);
+    fill: transparent;
+    opacity: .1;
+}
+
+/* FOOTER COPYRIGHT */
+
+footer {
+    padding-left: 10%;
+    height: $height / 2;
+    margin-top: 1.5%;
+    color: rgba(0,0,0,.58);
+    font-family: $primaryFont;
+}
+
+@media screen and (max-width: 768px) {
+    footer {
+        margin-top: 3%;
+        padding-left: 5%;
     }
 }
 

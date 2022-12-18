@@ -275,7 +275,10 @@ nav {
     width: 23px;
     height: 30px;
     cursor: pointer;
-    padding-right: 5px;
+    transition: all 0.2s ease-out;
+    transform-origin: center;
+    transform: scale(0.4);
+    fill: transparent;
   }
   .navbarHamburgerToggle > span:nth-child(1) {
     top: 4px;
@@ -300,13 +303,11 @@ nav {
     width: 20px;
   }
   .navbarHamburgerToggle:hover {
-    transform-origin: center;
-    transform: scale(1.2);
-    background-color: yellow;
-    border-radius: 50%;
+    transform: scale(1);
+    border-radius: 24px;
     padding-left: 5px;
     padding-right: 5px;
-    transition: all 0.2s ease-out;
+    background-color: #E9E9E9;
   }
   .navbarLogo {
     width: 40px;
@@ -532,6 +533,9 @@ nav {
   .mainAdvertise {
     padding: 6% 0;
   }
+  .mainAdvertiseContainer > div {
+    margin-bottom: 4%;
+  }
   .mainAdvertiseContainer > div > div {
     flex: 100%;
   }
@@ -541,11 +545,17 @@ nav {
   .mainAdvertiseHomepage > p {
     font-size: 1.5rem;
   }
+  .mainAdvertiseHomepage > ul {
+    margin-bottom: 5%;
+  }
   .mainAdvertiseHomepageTitle {
     font-size: 3rem;
   }
   .mainAdvertiseRewards {
     margin-top: 10%;
+  }
+  .mainAdvertiseRewards > ul {
+    margin-bottom: 5%;
   }
   .mainAdvertiseRewards > ul > p {
     font-size: 1.1rem;
@@ -567,6 +577,9 @@ nav {
   }
   .mainAdvertisePerfectlyTitle {
     font-size: 3rem;
+  }
+  .mainAdvertisePerfectly > ul {
+    margin-bottom: 5%;
   }
 }
 /* SECTION RULES */
@@ -597,9 +610,11 @@ nav {
 /* SECTION INFORMATIONS */
 .informationsGrid {
   display: grid;
-  grid-template-columns: 13% 13% 13% 13% 13% 35%;
+  grid-template-columns: 20% 20% 20% 20% 20%;
   padding-left: 10%;
+  padding-right: 10%;
   font-family: SoDoSans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  max-width: 1000px;
 }
 .informationsGrid > div {
   padding: 5%;
@@ -619,7 +634,127 @@ nav {
 .informationsGrid > div a:hover {
   color: #000;
 }
+.informationsBorder {
+  border: 1px solid #000;
+  margin: 0.5% auto 2%;
+  opacity: 0.1;
+  width: 80%;
+}
+.informationsResponsive {
+  display: none;
+}
 
+@media screen and (max-width: 768px) {
+  .informationsGrid {
+    display: none;
+  }
+  .informationsBorder {
+    width: 95%;
+  }
+  .informationsResponsive {
+    font-family: SoDoSans, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 0.8rem;
+    display: block;
+    margin: 0 5%;
+  }
+  .informationsResponsive > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 3% 0 3%;
+    cursor: pointer;
+  }
+  .informationsResponsive > div > div > svg {
+    transition: all 0.4s;
+  }
+  .informationsResponsive > div > div > svg.rotate {
+    transform: rotate(180deg);
+  }
+  .informationsResponsive > div:nth-child(2n) {
+    transition: max-height 0.4s ease-in-out;
+    overflow: hidden;
+    max-height: 0;
+  }
+  .informationsResponsive > div:nth-child(2n).active {
+    max-height: 330px;
+  }
+  .informationsResponsive > div:nth-child(2n) > ul > li {
+    padding-top: 40%;
+  }
+  .informationsResponsive > div:nth-child(2n) > ul > li > a {
+    text-decoration: none;
+    color: #000;
+    font-size: 0.9rem;
+  }
+}
+/* SECTION PLATFORMS */
+.platforms {
+  padding-left: 10%;
+}
+.platformsIcon {
+  display: flex;
+  gap: 0.75%;
+  margin: 2% 0 1% 0;
+}
+.platformsIcon div > a {
+  text-decoration: none;
+  color: #000;
+  transition: all 0.2s ease-out;
+}
+.platformsLinkContainer > ul {
+  display: flex;
+  width: 100%;
+}
+.platformsLinkContainer > ul > li {
+  list-style-type: none;
+  padding-right: 2%;
+}
+.platformsLinkContainer > ul > li > a {
+  text-decoration: none;
+  font-family: SoDoSans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: black;
+}
+.platformsLinkContainer > ul > li::first-letter {
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 768px) {
+  .platforms {
+    padding-left: 5%;
+  }
+  .platformsLinkContainer > ul {
+    display: block;
+  }
+  .platformsLinkContainer > ul > li:nth-child(2n) {
+    visibility: hidden;
+  }
+  .platformsIcon > div {
+    padding-right: 3%;
+  }
+}
+.sb-icon-hover {
+  transition: all 0.2s ease-out;
+  transform-origin: center;
+  transform: scale(0.4);
+  fill: transparent;
+  opacity: 0.1;
+}
+
+/* FOOTER COPYRIGHT */
+footer {
+  padding-left: 10%;
+  height: 50px;
+  margin-top: 1.5%;
+  color: rgba(0, 0, 0, 0.58);
+  font-family: SoDoSans, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  footer {
+    margin-top: 3%;
+    padding-left: 5%;
+  }
+}
 /*# sourceMappingURL=style.css.map */
 
 /*# sourceMappingURL=style.css.map */
