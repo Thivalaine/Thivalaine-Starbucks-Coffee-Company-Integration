@@ -732,14 +732,6 @@ nav {
     padding-right: 3%;
   }
 }
-.sb-icon-hover {
-  transition: all 0.2s ease-out;
-  transform-origin: center;
-  transform: scale(0.4);
-  fill: transparent;
-  opacity: 0.1;
-}
-
 /* FOOTER COPYRIGHT */
 footer {
   padding-left: 10%;

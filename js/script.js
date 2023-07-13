@@ -10,35 +10,28 @@ let opened = 0;
 /* if button of responsive navbar is clicked then button, menu and filter are enable */
 
 btn.onclick = () => {
-    nav.classList.toggle("open");
-    mask.classList.toggle("open");
-    filter.classList.toggle("open");
-    submenu.classList.remove("open");
+    toggleOpen(nav, mask, filter);
+    removeOpen(submenu);
 
-    if(opened === 1) {
-        body.classList.remove("overflowHidden");
+    if(opened < 1) {
+        removeOverflow(body);
         opened = 0;
     }
-    else {
-        body.classList.add("overflowHidden");
-        opened = 1;
-    }
+
+    addOverflow(body);
+    opened = 1;
 };
 
 /* if you click in the main page then menu, button, filter and submenu are resets */
 
 filter.onclick = () => {
-    mask.classList.remove("open");
-    filter.classList.remove("open");
-    nav.classList.remove("open");
-    submenu.classList.remove("open");
+    removeOpen(mask, filter, nav, submenu);
 
-    if(opened === 1) {
-        body.classList.remove("overflowHidden");
+    if(opened > 0) {
+        removeOverflow(body);
         opened = 0;
-    }
-    else {
-        body.classList.add("overflowHidden");
+    } else {
+        addOverflow(body);
         opened = 1;
     }
 }
@@ -52,44 +45,54 @@ let header = document.querySelector(".navbarSubMenuHeader");
 /* if menu is clicked then submenu is open */
 
 menu.onclick = () => {
-    submenu.classList.toggle("open");
+    toggleOpen(submenu);
 }
 
 /* if header of submenu is clicked then submenu is close */
 
 header.onclick = () => {
-    submenu.classList.remove("open");
+    removeOpen(submenu)
 }
 
 /* if media screen is max width on 768px then reset all responsives objects */
 
-window.addEventListener("resize", function() {
+window.addEventListener("resize", () => {
     if (window.matchMedia("(max-width: 768px)").matches) {
-        mask.classList.remove("open");
-        filter.classList.remove("open");
-        nav.classList.remove("open");
-        submenu.classList.remove("open");
+        removeOverflow(body);
+        removeOpen(mask, filter, nav, submenu);
     }
 })
 
-let hover = document.querySelector(".platformsIconButton");
-
-hover.addEventListener("mouseover", mouseover, false);
-
-function mouseover() {
-    hover.classList.add("sb-icon-hover");
+function removeOpen(...list) {
+    return list.forEach(element =>
+        element.classList.remove("open")
+    )
 }
 
-hover.addEventListener("mouseout", mouseout, false);
-
-function mouseout() {
-    hover.classList.remove("sb-icon-hover");
+function toggleOpen(...list) {
+    return list.forEach(element =>
+        element.classList.toggle("open")
+    )
 }
 
-let test = document.querySelectorAll('.informationsResponsive > div:nth-child(2n-1)');
+function removeOverflow(...list) {
+    return list.forEach(element =>
+        element.classList.remove("overflowHidden")
+    )
+}
 
-for(let i = 0; i < test.length; i++) {
-    test[i].addEventListener('click', function() {
+function addOverflow(...list) {
+    return list.forEach(element =>
+        element.classList.add("overflowHidden")
+    )
+}
+
+/* SCRIPT EXPANDABLE */
+
+let expandable = document.querySelectorAll('.informationsResponsive > div:nth-child(2n-1)');
+
+for(let i = 0; i < expandable.length; i++) {
+    expandable[i].addEventListener('click', () => {
         let hidden = document.querySelector('.hiddenCollapsible' + i);
         hidden.classList.toggle("active");
         let rotate = document.querySelector('.logoCollapsible' + i)
